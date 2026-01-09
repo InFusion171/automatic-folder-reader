@@ -1,29 +1,40 @@
-function showInternationalizedText(messageKey, replacement1, replacement2, replacement3, replacement4) {
-	if (!messageId) {
-    	console.error("No messageId provided, cannot display internationalized text.");
-    	document.write("[error: messageId missing]");
+function showInternationalizedText(element, messageKey, ...replacements) {
+	if (!element) {
+		console.error("No element provided, cannot display internationalized text.");
+		return;
 	}
-	
-	document.write(browser.i18n.getMessage(messageId, replacement1, replacement2, replacement3, replacement4));
+
+	if (!messageKey) {
+		console.error("No messageKey provided for element:", element);
+		element.textContent = "[error: messageKey missing]";
+		return;
+	}
+
+	const message = browser.i18n.getMessage(messageKey, replacements);
+	element.textContent = message || `[missing i18n: ${messageKey}]`;
 }
 
 function fillMessagesInOptionsPage() {
-	let allInBody = document.querySelectorAll('[messageKey]');
-	
-	for (let element of allInBody) {		
-		let messageKey = element.getAttribute("messageKey");
-		
+	const allElements = document.querySelectorAll('[messageKey]');
+
+	allElements.forEach(element => {
+		const messageKey = element.getAttribute('messageKey');
 		if (!messageKey) {
-			console.warn("messageKey is missing for element: " + element);
-			continue;
+			console.warn("messageKey is missing for element:", element);
+			return;
 		}
-		
-		element.innerHTML = browser.i18n.getMessage(messageKey);
-	}
+
+		const replacements = [];
+		for (let i = 1; i <= 4; i++) {
+			const value = element.dataset[`replacement${i}`];
+			if (value) replacements.push(value);
+		}
+
+		showInternationalizedText(element, messageKey, ...replacements);
+	});
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 	fillMessagesInOptionsPage();
-
-	console.info("background: processed i18n for options page");
+	console.info("Options page: i18n messages processed.");
 });

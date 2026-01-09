@@ -14,7 +14,6 @@
     "description": "Beschreibung des Add-ons."
   },
 
-
   "commonFoldersCheckboxes.header": {
     "message": "Standard-Ordner:",
     "description": "Die Überschrift des Bereiches der Kontrollkästchens, in dem Standard-Ordner ausgewählt werden können."

@@ -31,7 +31,10 @@ This add-on automatically marks messages in such folders as read, keeping the un
 
 A pre-zipped release is available in the `build` folder.
 
+## Motivation
+
+This is a updatet version from [Silvester2584](https://github.com/thirdinsight/AutoMarkFolderRead)
+
 ## License
 
 Public domain.
-
