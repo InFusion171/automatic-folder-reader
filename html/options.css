@@ -15,7 +15,6 @@ body {
   margin: 3px 0;
 }
 
-
 label {
   color: black;
 }
@@ -47,19 +46,7 @@ label {
   font-size: 0.75em;
 }
 
-span.info {
-  background:url('../img/info-icon.png') no-repeat;
-  background-size: 16px 16px;
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  position: relative;
-  top: 0.15em;
-  left: 0.2em;
-}
-
 span.tooltip {
-/*   border-bottom: 1px dashed; */ /* may be useful for text only to have a dashed underline */
   text-decoration: none;
 }
 span.tooltip:hover {
