@@ -1,0 +1,84 @@
+body {
+  margin: 10px 20px;
+}
+
+.account {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.folderRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 3px 0;
+}
+
+
+label {
+  color: black;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    background-color: #23222b;
+  }
+  label {
+    color: #b3b9c4;
+  }
+  span {
+    color: #bcc4c9;
+  }
+  .info.tooltip:hover > span:first-child {
+    background-color: #060507;
+  }
+  .info.tooltip:hover > span:first-child,
+  .info.tooltip:hover > span:first-child span {
+    color: #d1d1d1;
+  }
+}
+
+.finePrint {
+  font-size: 0.75em;
+}
+
+span.info {
+  background:url('../img/info-icon.png') no-repeat;
+  background-size: 16px 16px;
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: 0.15em;
+  left: 0.2em;
+}
+
+span.tooltip {
+/*   border-bottom: 1px dashed; */ /* may be useful for text only to have a dashed underline */
+  text-decoration: none;
+}
+span.tooltip:hover {
+  position: relative;
+}
+span.tooltip > span:first-child {
+  display: none;
+}
+span.tooltip:hover > span:first-child {
+  border: #666 2px dotted;
+  border-radius: 15px;
+  padding: 7px 10px 7px 13px;
+  display: block;
+  z-index: 100;
+  background-color: #ffe179;
+  left: 1em;
+  margin: 15px;
+  width: 400px;
+  position: absolute;
+  top: 15px;
+  text-decoration: none;
+}
