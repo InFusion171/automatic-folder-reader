@@ -33,7 +33,7 @@ A pre-zipped release is available in the `build` folder.
 
 ## Motivation
 
-This is a updatet version from [Silvester2584](https://github.com/thirdinsight/AutoMarkFolderRead)
+This is a updated version from [Silvester2584](https://github.com/thirdinsight/AutoMarkFolderRead)
 
 ## License
 

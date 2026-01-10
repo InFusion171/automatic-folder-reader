@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_extensionName__",
 	"short_name": "__MSG_extensionShortName__",
     "description": "__MSG_extensionDescription__",
@@ -7,9 +7,9 @@
     "author": "InFusion",
     "default_locale": "en",
 	"homepage_url": "https://github.com/InFusion171/automatic-folder-reader",
-    "applications": {
+    "browser_specific_settings": {
         "gecko": {
-            "id": "autoMarkFolderRead.silvester@addons.thunderbird.net",
+            "id": "autoMarkFolderRead.InFusion@addons.thunderbird.net",
             "strict_min_version": "140.0"
         }
     },
