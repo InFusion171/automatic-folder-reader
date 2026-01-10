@@ -1,0 +1,14 @@
+{
+    "extensionName": {
+        "message": "Mappen automatisch als gelezen markeren",
+        "description": "Naam van de add-on."
+    },
+    "extensionShortName": {
+        "message": "AutoMarkRead",
+        "description": "Korte naam van de add-on."
+    },
+    "extensionDescription": {
+        "message": "Nieuwe berichten worden in geselecteerde mappen automatisch als gelezen gemarkeerd.",
+        "description": "Beschrijving van de add-on."
+    }
+}

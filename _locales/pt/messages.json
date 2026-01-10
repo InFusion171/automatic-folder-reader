@@ -1,0 +1,14 @@
+{
+    "extensionName": {
+        "message": "Marcar pastas automaticamente como lidas",
+        "description": "Nome do complemento."
+    },
+    "extensionShortName": {
+        "message": "AutoMarkRead",
+        "description": "Nome curto do complemento."
+    },
+    "extensionDescription": {
+        "message": "Novas mensagens em pastas selecionadas são automaticamente marcadas como lidas.",
+        "description": "Descrição do complemento."
+    }
+}

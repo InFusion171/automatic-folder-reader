@@ -1,0 +1,14 @@
+{
+    "extensionName": {
+        "message": "Automatyczne oznaczanie folderów jako przeczytane",
+        "description": "Nazwa dodatku."
+    },
+    "extensionShortName": {
+        "message": "AutoMarkRead",
+        "description": "Krótka nazwa dodatku."
+    },
+    "extensionDescription": {
+        "message": "Nowe wiadomości w wybranych folderach są automatycznie oznaczane jako przeczytane.",
+        "description": "Opis dodatku."
+    }
+}
