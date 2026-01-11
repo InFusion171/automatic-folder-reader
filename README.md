@@ -1,8 +1,8 @@
-# Auto Mark Folder Read
+# Automatic Folder Reader
 
 ## Overview
 
-**Auto Mark Folder Read** is a Mozilla Thunderbird add-on that automatically marks messages as *read* in selected folders such as junk, trash, drafts, or templates.
+**Automatic Folder Reader** is a Mozilla Thunderbird add-on that automatically marks messages as *read* in selected folders such as junk, trash, drafts, or templates.
 
 The affected folders can be configured in the add-on’s options panel.
 
@@ -29,7 +29,7 @@ This add-on automatically marks messages in such folders as read, keeping the un
 
 ### Prebuilt version
 
-A pre-zipped release is available in the `build` folder.
+A pre-zipped release is available [here.](https://github.com/InFusion171/automatic-folder-reader/releases)
 
 ## Motivation
 

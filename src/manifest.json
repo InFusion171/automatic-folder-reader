@@ -9,7 +9,7 @@
 	"homepage_url": "https://github.com/InFusion171/automatic-folder-reader",
     "browser_specific_settings": {
         "gecko": {
-            "id": "autoMarkFolderRead.InFusion@addons.thunderbird.net",
+            "id": "automaticFolderReader.InFusion@addons.thunderbird.net",
             "strict_min_version": "140.0"
         }
     },
