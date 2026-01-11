@@ -1,15 +1,17 @@
 #!/bin/bash
 
-OUTPUT="automatic-folder-reader.xpi"
 BUILD_DIR="build"
+SRC_DIR="src"
+APP_NAME="automatic-folder-reader"
 
-if [ -d "$BUILD_DIR" ]; then
-    rm -rf "$BUILD_DIR"
-fi
-
+rm -rf "$BUILD_DIR"
 mkdir "$BUILD_DIR"
 
-cd src
+VERSION=$(jq -r '.version' "$SRC_DIR/manifest.json")
+
+OUTPUT="$APP_NAME-$VERSION.xpi"
+
+cd "$SRC_DIR" 
 
 zip -r "../$BUILD_DIR/$OUTPUT" \
     _locales \
@@ -17,4 +19,3 @@ zip -r "../$BUILD_DIR/$OUTPUT" \
     img \
     js \
     manifest.json
-
