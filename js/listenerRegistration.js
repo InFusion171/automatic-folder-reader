@@ -12,7 +12,7 @@ export function registerRenderAccountsAndFoldersOnChangeListener() {
         "onRenamed"
     ]
 
-    for (let e in events) {
+    for (let e of events) {
         messenger.folders[e].addListener(renderAccountsAndFolders)
     }
 
@@ -24,8 +24,8 @@ export function registerOnContentLoaded() {
     document.addEventListener('DOMContentLoaded', async () => {
         console.info("[Auto read Addon]: addon loaded");
 
-        renderAccountsAndFolders()
-        restoreOptions()
+        await renderAccountsAndFolders()
+        await restoreOptions()
 
         messenger.folders.onFolderInfoChanged.addListener(markAllSelectedFolderAsRead);
     });
@@ -33,7 +33,7 @@ export function registerOnContentLoaded() {
 
 export function registerSetSelectedFoldersOnStorageChanged() {
     browser.storage.onChanged.addListener(async () => {
-        refreshSelectedFolders()
+        await refreshSelectedFolders()
     })
 }
 

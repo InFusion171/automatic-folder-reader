@@ -16,7 +16,7 @@ export function saveOptions(event) {
 }
 
 export async function restoreOptions() {  
-  refreshSelectedFolders()
+  await refreshSelectedFolders()
 
   document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(
     cb => cb.checked = selectedFolders.has(cb.dataset.folderId)
