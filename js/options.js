@@ -1,37 +1,27 @@
 function saveOptions(event) {
-  let selected = {};
+  let selected = [];
 
-  document.querySelectorAll("input[type=checkbox][data-folder-id]")
-    .forEach(cb => {
+  document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(cb => {
       if (!cb.checked) 
         return;
 
-      let acc = cb.dataset.accountId;
-      let folder = cb.dataset.folderId;
-
-      if (!selected[acc]) 
-        selected[acc] = [];
-      
-      selected[acc].push(folder);
+      selected.push(cb.dataset.folderId);
     });
 
-  browser.storage.local.set({ selectedFolders: selected });
+  browser.storage.local.set({ "selectedFolders": selected });
   
   event.preventDefault();
 }
 
-async function restoreOptions() {
-  let { selectedFolders } = await browser.storage.local.get("selectedFolders");
+async function restoreOptions() {  
+  selectedFolders = await loadOptionsFromStorage()
   
   if (!selectedFolders) 
     return;
 
-  document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(cb => {
-    let acc = cb.dataset.accountId;
-    let folder = cb.dataset.folderId;
-
-    cb.checked = selectedFolders[acc]?.includes(folder) || false;
-  });
+  document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(
+    cb => cb.checked = selectedFolders.has(cb.dataset.folderId)
+  );
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

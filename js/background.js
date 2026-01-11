@@ -1,11 +1,12 @@
-async function onFolderInfoChangedListener(folder, folderInfo) {
-	if (folderInfo.unreadMessageCount == 0)
-		return
+var selectedFolders = new Set()
 
-	messenger.messages.query({"folderId": folder.id, "read": false}).then(
+async function onFolderInfoChangedListener() {	
+	
+	messenger.messages.query({ "folderId": "", "read": false}).then(
 		(m) => {
 			for (let message of m.messages) {
 				messenger.messages.update(message.id, {"read": true});
+				console.log("updatet: " + message.id)
 			}
 		},
 		(error) => {
@@ -14,8 +15,21 @@ async function onFolderInfoChangedListener(folder, folderInfo) {
 	);
 }
 
+async function loadOptionsFromStorage() {
+	let { selectedFolders } = await browser.storage.local.get("selectedFolders")
+
+	if (!selectedFolders)
+		return new Set()
+
+	return new Set(selectedFolders)
+} 
+
+browser.storage.onChanged.addListener(async () => {
+	selectedFolders = await loadOptionsFromStorage()
+})
+
 document.addEventListener("DOMContentLoaded", async () => {
-	console.info("[Auto read Addon]: autoread_folder loaded");
+	console.info("[Auto read Addon]: addon loaded");
 
 	messenger.folders.onFolderInfoChanged.addListener(onFolderInfoChangedListener);
 });

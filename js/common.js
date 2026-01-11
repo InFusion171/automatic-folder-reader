@@ -1,29 +1,32 @@
 function renderFolders(folders, parentElement, accountId, level = 0) {
+  if (!folders)
+    return  
+  
   for (let folder of folders) {
-	let row = document.createElement("div");
-	row.className = "folderRow";
-	row.style.marginLeft = `${level * 20}px`;
+      let row = document.createElement("div");
+      row.className = "folderRow";
+      row.style.marginLeft = `${level * 20}px`;
 
-	let checkbox = document.createElement("input");
-	checkbox.type = "checkbox";
-	checkbox.dataset.folderId = folder.id;
-	checkbox.dataset.accountId = accountId;
+      let checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.dataset.folderId = folder.id;
+      checkbox.className = "folder-checkbox"
 
-	let label = document.createElement("label");
-	label.textContent = folder.name;
+      let label = document.createElement("label");
+      label.textContent = folder.name;
 
-	row.appendChild(checkbox);
-	row.appendChild(label);
-	parentElement.appendChild(row);
+      row.appendChild(checkbox);
+      row.appendChild(label);
+      parentElement.appendChild(row);
 
-	if (folder.subFolders?.length) {
-	  renderFolders(folder.subFolders, parentElement, accountId, level + 1);
-	}
-  }
+      if (folder.subFolders?.length) {
+        renderFolders(folder.subFolders, parentElement, accountId, level + 1);
+      }
+    }
 }
 
 async function loadAccountsAndFolders() {
-  let accounts = await browser.accounts.list();
+  let accounts = await browser.accounts.list(true);
   let container = document.getElementById("accountsContainer");
   container.innerHTML = "";
 
@@ -37,7 +40,7 @@ async function loadAccountsAndFolders() {
     `;
 
     let foldersDiv = accountDiv.querySelector(".folders");
-    renderFolders(account.folders, foldersDiv, account.id);
+    renderFolders(account.rootFolder.subFolders, foldersDiv, account.id);
 
     container.appendChild(accountDiv);
   }
