@@ -1,4 +1,6 @@
-function saveOptions(event) {
+import { selectedFolders, refreshSelectedFolders, saveOptionsToStorage } from "./storage.js"
+
+export function saveOptions(event) {
   let selected = [];
 
   document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(cb => {
@@ -7,17 +9,14 @@ function saveOptions(event) {
 
       selected.push(cb.dataset.folderId);
     });
-
-  browser.storage.local.set({ "selectedFolders": selected });
   
+    saveOptionsToStorage(selected)
+
   event.preventDefault();
 }
 
-async function restoreOptions() {  
-  selectedFolders = await loadOptionsFromStorage()
-  
-  if (!selectedFolders) 
-    return;
+export async function restoreOptions() {  
+  refreshSelectedFolders()
 
   document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(
     cb => cb.checked = selectedFolders.has(cb.dataset.folderId)
