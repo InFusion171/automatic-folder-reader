@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT="autoMarkFolderRead.xsi"
+OUTPUT="autoMarkFolderRead.xpi"
 BUILD_DIR="build"
 
 if [ -d "$BUILD_DIR" ]; then
@@ -11,7 +11,7 @@ mkdir "$BUILD_DIR"
 
 cd src
 
-zip -r "$BUILD_DIR/$OUTPUT" \
+zip -r "../$BUILD_DIR/$OUTPUT" \
     _locales \
     html \
     img \
