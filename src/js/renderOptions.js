@@ -27,22 +27,23 @@ export function renderFolders(folders, parentElement, accountId, level = 0) {
 export async function renderAccountsAndFolders() {
     let accounts = await browser.accounts.list(true);
     let container = document.getElementById("accountsContainer");
-    container.innerHTML = "";
 
     for (let account of accounts) {
         let accountDiv = document.createElement("div");
         accountDiv.className = "account";
 
-        accountDiv.innerHTML = `
-        <h3>${account.name}</h3>
-        <div class="folders"></div>
-      `;
+        let h3 = document.createElement("h3");
+        h3.textContent = account.name;
+        accountDiv.appendChild(h3);
 
-        let foldersDiv = accountDiv.querySelector(".folders");
-        renderFolders(account.rootFolder.subFolders, foldersDiv, account.id);
+        let foldersDiv = document.createElement("div");
+        foldersDiv.className = "folders";
+        accountDiv.appendChild(foldersDiv);
+
+        if (account.rootFolder?.subFolders?.length) {
+            renderFolders(account.rootFolder.subFolders, foldersDiv, account.id);
+        }
 
         container.appendChild(accountDiv);
     }
 }
-
-
