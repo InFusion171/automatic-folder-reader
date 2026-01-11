@@ -23,13 +23,3 @@ async function loadOptionsFromStorage() {
 
 	return new Set(selectedFolders)
 } 
-
-browser.storage.onChanged.addListener(async () => {
-	selectedFolders = await loadOptionsFromStorage()
-})
-
-document.addEventListener("DOMContentLoaded", async () => {
-	console.info("[Auto read Addon]: addon loaded");
-
-	messenger.folders.onFolderInfoChanged.addListener(onFolderInfoChangedListener);
-});

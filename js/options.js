@@ -23,19 +23,3 @@ async function restoreOptions() {
     cb => cb.checked = selectedFolders.has(cb.dataset.folderId)
   );
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadAccountsAndFolders()
-  await restoreOptions()
-});
-
-document.querySelector("form").addEventListener("change", saveOptions);
-
-messenger.folders.onCreated.addListener(loadAccountsAndFolders);
-messenger.folders.onDeleted.addListener(loadAccountsAndFolders);
-messenger.folders.onFolderInfoChanged.addListener(loadAccountsAndFolders);
-messenger.folders.onMoved.addListener(loadAccountsAndFolders);
-messenger.folders.onRenamed.addListener(loadAccountsAndFolders);
-
-messenger.accounts.onCreated.addListener(loadAccountsAndFolders);
-messenger.accounts.onDeleted.addListener(loadAccountsAndFolders);
