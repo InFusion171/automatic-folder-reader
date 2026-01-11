@@ -9,6 +9,8 @@ fi
 
 mkdir "$BUILD_DIR"
 
+cd src
+
 zip -r "$BUILD_DIR/$OUTPUT" \
     _locales \
     html \
