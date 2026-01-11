@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT="autoMarkFolderRead.xpi"
+OUTPUT="automatic-folder-reader.xpi"
 BUILD_DIR="build"
 
 if [ -d "$BUILD_DIR" ]; then
