@@ -27,6 +27,7 @@ export function registerOnContentLoaded() {
         await renderAccountsAndFolders()
         await restoreOptions()
 
+        await markAllSelectedFolderAsRead()
         messenger.folders.onFolderInfoChanged.addListener(markAllSelectedFolderAsRead);
     });
 }
