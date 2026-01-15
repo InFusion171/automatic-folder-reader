@@ -3,7 +3,7 @@
     "name": "__MSG_extensionName__",
 	"short_name": "__MSG_extensionShortName__",
     "description": "__MSG_extensionDescription__",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "InFusion",
     "default_locale": "en",
 	"homepage_url": "https://github.com/InFusion171/automatic-folder-reader",
@@ -17,11 +17,12 @@
 		"accountsRead",
 		"messagesRead",
 		"messagesUpdate",
+		"accountsFolders",
 		"storage"
 	],
 	"background": {
 		"scripts": [
-			"main.js"
+			"background.js"
 		],
 		"type": "module"
 	},
