@@ -27,6 +27,10 @@ export function renderFolders(folders, parentElement, accountId, level = 0) {
 export async function renderAccountsAndFolders() {
     let accounts = await browser.accounts.list(true);
     let container = document.getElementById("accountsContainer");
+   
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     for (let account of accounts) {
         let accountDiv = document.createElement("div");

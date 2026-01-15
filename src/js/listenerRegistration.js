@@ -1,6 +1,6 @@
 import { saveOptions, restoreOptions } from "./options.js"
 import { renderAccountsAndFolders } from "./renderOptions.js"
-import { refreshSelectedFolders } from "./storage.js"
+import { refreshSelectedFolders, loadOptionsFromStorage } from "./storage.js"
 import { markAllSelectedFolderAsRead } from "./markAsRead.js"
 
 export function registerRenderAccountsAndFoldersOnChangeListener() {
@@ -33,7 +33,10 @@ export function registerOnContentLoaded() {
 }
 
 export function registerSetSelectedFoldersOnStorageChanged() {
-    browser.storage.onChanged.addListener(refreshSelectedFolders)
+    browser.storage.onChanged.addListener(async () => {
+        await refreshSelectedFolders()
+    })
+        
 }
 
 export function registerSaveOptionOnFormChange() {
