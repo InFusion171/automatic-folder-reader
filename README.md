@@ -29,7 +29,7 @@ This add-on automatically marks messages in such folders as read, keeping the un
 
 ### Prebuilt version
 
-A pre-zipped release is available [here](https://github.com/InFusion171/automatic-folder-reader/releases)
+A pre-zipped release is available on [GitHub](https://github.com/InFusion171/automatic-folder-reader/releases)
 
 ## Motivation
 
