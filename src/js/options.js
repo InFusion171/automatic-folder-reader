@@ -1,16 +1,16 @@
 import { selectedFolders, refreshSelectedFolders, saveOptionsToStorage } from "./storage.js"
 
 export function saveOptions(event) {
-  let selected = [];
+  let selectedFolderIds = [];
 
   document.querySelectorAll("input[type=checkbox][data-folder-id]").forEach(cb => {
       if (!cb.checked) 
         return;
 
-      selected.push(cb.dataset.folderId);
+      selectedFolderIds.push(cb.dataset.folderId);
     });
   
-    saveOptionsToStorage(selected)
+  saveOptionsToStorage(selectedFolderIds)
 
   event.preventDefault();
 }

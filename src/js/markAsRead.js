@@ -1,11 +1,7 @@
 import { selectedFolders } from "./storage.js";
 
 export async function markAllSelectedFolderAsRead() {
-    messenger.messages.query({ "folderId": [...selectedFolders], "read": false }).then(
-        (m) => {
-            for (let message of m.messages) {
-                messenger.messages.update(message.id, { "read": true });
-            }
-        }
-    );
+    for (let folderId of selectedFolders) {
+        browser.folders.markAsRead(folderId)
+    }
 }

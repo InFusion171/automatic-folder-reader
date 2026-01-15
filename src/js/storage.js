@@ -1,7 +1,7 @@
 export let selectedFolders = new Set();
 
-export function saveOptionsToStorage(options) {
-    browser.storage.local.set({ "selectedFolders": Array.from(options) || [] });
+export function saveOptionsToStorage(folderIds) {
+    browser.storage.local.set({ "selectedFolders": Array.from(folderIds) || [] });
 }
 
 export async function loadOptionsFromStorage() {

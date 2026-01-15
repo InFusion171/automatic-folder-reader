@@ -19,6 +19,12 @@
 		"messagesUpdate",
 		"storage"
 	],
+	"background": {
+		"scripts": [
+			"main.js"
+		],
+		"type": "module"
+	},
 	"icons": {
 		"256": "img/icon.png"
 	},
