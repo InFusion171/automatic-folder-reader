@@ -33,11 +33,9 @@ export function registerOnContentLoaded() {
 }
 
 export function registerSetSelectedFoldersOnStorageChanged() {
-    browser.storage.onChanged.addListener(async () => {
-        await refreshSelectedFolders()
-    })
+    browser.storage.onChanged.addListener(refreshSelectedFolders)
 }
 
 export function registerSaveOptionOnFormChange() {
-    document.querySelector("form").addEventListener("change", saveOptions);
+    document.querySelector("form")?.addEventListener("change", saveOptions);
 }

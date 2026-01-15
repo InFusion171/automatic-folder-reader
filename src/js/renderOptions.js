@@ -44,6 +44,6 @@ export async function renderAccountsAndFolders() {
             renderFolders(account.rootFolder.subFolders, foldersDiv, account.id);
         }
 
-        container.appendChild(accountDiv);
+        container?.appendChild(accountDiv);
     }
 }
